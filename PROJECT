@@ -1,0 +1,3 @@
+version: "1"
+domain: itaysk.com
+repo: github.com/itaysk/kube-conditioner

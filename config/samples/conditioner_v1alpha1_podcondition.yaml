@@ -1,0 +1,14 @@
+apiVersion: conditioner.itaysk.com/v1alpha1
+kind: PodCondition
+metadata:
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: conditiontest
+spec:
+  interval: 5000
+  labelSelector:
+    matchLabels:
+      itaysk: test
+  prometheusSource:
+    serverUrl: "http://my-prometheus-server"
+    rule: "vector(1)>0"
