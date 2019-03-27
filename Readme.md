@@ -43,6 +43,8 @@ Use cases:
 - To determine the Pod readiness state using [Readiness Gate](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-readiness-gate).
 - For automatic remediation scenarios.
 
+For more context and information, please see this blog post: [http://blog.itaysk.com/2019/03/27/kube-conditioner-custom-pod-conditions-for-everyone](http://blog.itaysk.com/2019/03/27/kube-conditioner-custom-pod-conditions-for-everyone)
+
 ## Datasources
 
 The controller is pluggable by design in regards to how to determin the status of the condition. The current implementation supports running queries against Prometheus in a pretty basic way. This area needs work and additional datasources may be added. 
