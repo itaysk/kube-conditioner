@@ -27,9 +27,10 @@ import (
 const PrometheusEnv = "TEST_PROMETHEUS_SERVER"
 
 var PrometheusURL string
+var PrometheusOK bool
 
 func TestMain(m *testing.M) {
-	if PrometheusURL = os.Getenv(PrometheusEnv); PrometheusURL == "" {
+	if PrometheusURL, PrometheusOK = os.LookupEnv(PrometheusEnv); !PrometheusOK {
 		stdlog.Printf("missing environment variable %s", PrometheusEnv)
 	}
 
@@ -38,8 +39,8 @@ func TestMain(m *testing.M) {
 }
 
 func TestEvaluate(t *testing.T) {
-	if PrometheusURL == "" {
-		t.Skip("prometheus server not found, skipping")
+	if !PrometheusOK {
+		t.Skip("prometheus server not setup, skipping")
 	}
 
 	g := gomega.NewGomegaWithT(t)
