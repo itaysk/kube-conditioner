@@ -56,10 +56,6 @@ func (p PrometheusSource) Evaluate() (bool, error) {
 		return false, err //TODO: do I have to return false? maybe switch to return corev1.ConditionStatus instead of bool
 	}
 	v := []*model.Sample(result.(model.Vector))
-	//in case of falsely query, there will be no series returnd
-	if len(v) > 0 {
-		return v[0].Value == 1, nil
-	} else { //query succeeded and evaluates to false
-		return false, nil
-	}
+	// don't care about the samples value, just that there are samples in the vector
+	return len(v) > 0, nil
 }

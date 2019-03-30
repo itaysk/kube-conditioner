@@ -28,7 +28,7 @@ This will:
 - Determine the status of the by querying `Prometheus`
   - at `http://my.prom.server:9090`
   - with the query `myimportantmetric<50`
-  - expecting a result that is 1
+  - expecting the query to succeed (result is non empty)
 - Evaluate the condition every `5000` milliseconds
 
 ## Motivation
@@ -47,7 +47,9 @@ For more context and information, please see this blog post: [http://blog.itaysk
 
 ## Datasources
 
-The controller is pluggable by design in regards to how to determin the status of the condition. The current implementation supports running queries against Prometheus in a pretty basic way. This area needs work and additional datasources may be added. 
+The controller is pluggable by design in regards to how to determin the status of the condition. The current implementation supports running queries against Prometheus in a pretty basic way. This area needs work and additional datasources may be added.
+
+The Prometheus datasource is documented under [./pkg/datasource/prometheus/Readme.md](./pkg/datasource/prometheus/Readme.md)
 
 ## Installing
 
