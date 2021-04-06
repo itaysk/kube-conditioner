@@ -1,3 +1,5 @@
+# Notice - This is an experimentation project, use for education only
+
 # kube-conditioner
 
 kube-conditioner is a Kubernetes controller that allows you to define custom Kubernetes Pod conditions based on your own logic.  
